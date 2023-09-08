@@ -1,0 +1,16 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "description": "* Tunando o JavaScript\r * Pode tipar as vars\r * Consegue ver erros em tempo real enquanto está escrevendo  \r * Pode ser usado em qualquer lugar que o JS é aceito  \r #### Transpilação\r * Translate + Compile\r * Ele converte todo o código em JS (Node)",
+  "main": "Teste.js",
+  "scripts": {
+    "start":"npx tsc && node ./build/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}
