@@ -55,3 +55,75 @@ function callToPhone(phone: string | number): string | number{
 async function getDataBase(id: number): Promise<string>{
     return 'Victor'
 }
+
+// Interfaces x type
+type robot ={
+    readonly id: number | string
+    name: string
+}
+
+interface robot2 {
+    id: number | string
+    name: string
+    sayHello():string
+}
+
+const bot: robot ={
+    id: 1,
+    name: 'Megaman'
+}
+
+
+const bot2: robot2 = {
+    id: 1,
+    name: 'Megaman',
+    sayHello: function (): string {
+        return 'Done!'
+    }
+}
+//console.log(bot.id = 'cutman') -> erro ao escrever em readonly, o valor só pode ser definido na hora de herdar
+//console.log(bot2)
+
+class Pessoa implements robot2{
+    id: string | number
+    name: string
+    sayHello(): string {
+        return `Hello ${this.name}`
+    }
+
+    constructor(id: string | number, name: string){
+        this.id = id
+        this.name = name
+    }
+}
+
+//const p = new Pessoa(9, 'Nicole')
+//console.log(p.sayHello())
+
+//Class
+class Character {
+    protected name: string
+    readonly stregth: number
+    skill: number
+
+    attack(): void{
+        console.log(`Attack with ${this.stregth} points`)
+    }
+    constructor(name: string, stregth: number, skill: number){
+        this.name = name
+        this.stregth = stregth
+        this.skill = skill
+    }
+}
+// Subclasses
+class Magician extends Character{
+    magicPoints: number
+    constructor(name: string, stregth: number, skill: number, magicPoints: number){
+        super(name, stregth, skill)
+        this.magicPoints = magicPoints
+    }
+}
+const p1 = new Character('Ryu', 10, 98)
+const  p2 = new Magician('Mago', 9, 30, 100)
+p1.skill = 12
+

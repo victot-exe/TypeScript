@@ -103,3 +103,21 @@ function callToPhone(phone: string | number): string | number{
     return 'Victor'
 }`
 * async functions Precisam de uma promisse já que elas aguardam algum retorno de outra fonte.  
+
+## Interface x Type
+* O type é usado para tipar um objeto
+* Interface é mais utilizada para quando vamos utilizar classes
+* Interface é um contrato que quem herda tem que segui-lo
+* `readonly` -> apenas leitura - só pode ser definido na hora da criação, após não pode ser alterado;  
+**Em JS não tem diferença entre interface e type, ele declara apenas os objetos que herdaram as caracteristicas**  
+## Class
+* formas de areia, faz varios objetos iguais
+* Método `constructor(){}`-> método para instanciar a class e já serem passados os valores.
+* Para declarar um atributo como opcional colocamos `?` após o nome -> `nome?:string`
+#### Data modifers
+* `public`-> é o default, publico
+* `protected`-> dentro da classe e de classes filhas e da classe mãe  
+* `private`-> só pode ser acessada dentro da propria classe  
+#### Subclasses
+* uma classe que herda de outra classe e que pode ter atributos e métodos diferentes
+* `super()`-> método construtor da classe mãe
