@@ -141,5 +141,44 @@ function ExibirNome(target: any){
     console.log(target)
 }
 
-@ExibirNome //deixa o gatilho assim com o @nume da funcao
+//@ExibirNome //deixa o gatilho assim com o @nume da funcao
 class Funcionario{}
+
+function apiVersion(version: string){//adiciona algo em tempo de execução de código
+    return (target: any)=>{
+        Object.assign(target.prototype, {__version: version, __name: 'Victor'})
+    }
+}
+function minLength(length: number) {
+    return(target: any, key:string)=>{
+        let _value = (target[key])
+
+        const getter = ()=> '[play]' + _value
+        const setter = (value: string)=>{
+            if(value.length < length){
+                throw new Error(`Tamanho menor do que ${length}`)
+            }else{
+                _value = value
+            }
+        }
+
+        Object.defineProperty(target, key,{//redefinindo os getters e setters padroes da class
+            get: getter,
+            set: setter,
+        })
+    }
+}
+
+@apiVersion('1.10')
+class Api{
+    @minLength(3)
+    name: string
+
+    constructor(name: string){
+        this.name = name
+    }
+}
+
+const api = new Api('produtos')
+//console.log(api.__version)//só da certo depois que for compilado em ts npm run start:dev
+console.log(api.name)
