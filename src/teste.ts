@@ -1,1 +1,2 @@
-console.log('Teste')
+let dado: string = 'Victor'
+console.log(dado)

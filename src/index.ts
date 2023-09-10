@@ -127,3 +127,19 @@ const p1 = new Character('Ryu', 10, 98)
 const  p2 = new Magician('Mago', 9, 30, 100)
 p1.skill = 12
 
+// Generics
+function concatArray<T>(...itens: T[]): T[]{
+    return new Array().concat(...itens)
+}
+
+const numArray = concatArray<number[]>([1, 5], [3])
+const strArray = concatArray<string[]>(['Victor', 'Naruto'], ['Sasuke'])
+
+// Decorators
+
+function ExibirNome(target: any){
+    console.log(target)
+}
+
+@ExibirNome //deixa o gatilho assim com o @nume da funcao
+class Funcionario{}

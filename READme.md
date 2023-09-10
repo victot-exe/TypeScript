@@ -121,3 +121,33 @@ function callToPhone(phone: string | number): string | number{
 #### Subclasses
 * uma classe que herda de outra classe e que pode ter atributos e métodos diferentes
 * `super()`-> método construtor da classe mãe
+
+## Generics
+* `<T>`
+* Serve para que o tipo seja especificado na hora da implementação da function.   
+~~~
+function concatArray<T>(...itens: T[]): T[]{
+    return new Array().concat(...itens)
+}
+
+const numArray = concatArray<number[]>([1, 5], [3])
+const strArray = concatArray<string[]>(['Victor', 'Naruto'], ['Sasuke'])
+
+numArray.push('string') //Vai apontar um erro pois é diferente do tipo especificado
+~~~
+
+## Melhorando o script `start`
+* `npm install ts-node-dev -D` -> Servidor local que entende TS e atualiza em tempo real a saida.
+* `"start:dev": "ts-node-dev --respawn --traspile-only scr/index.ts"`
+
+## Decorators
+* Uma ação que vai acontecer quando uma determinada condição for cumprida
+* Sempre que o leite estiver a 2 reais compra
+~~~
+function ExibirNome(target: any){
+    console.log(target)
+}
+
+@ExibirNome //deixa o gatilho assim com o @nume da funcao
+class Funcionario{}
+~~~
